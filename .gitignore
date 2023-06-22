@@ -1,0 +1,9 @@
+**/*.part
+*.part
+*.txt
+d-archive.txt
+src/songs
+songs
+songs/*
+*.exe
+node_modules

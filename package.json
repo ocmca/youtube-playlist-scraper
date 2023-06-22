@@ -1,0 +1,31 @@
+{
+  "name": "youtube-playlist-scraper-powershell",
+  "version": "0.1.1",
+  "private":"true",
+  "type":"module",
+  "description": "Automatically extract audio from youtube playlists",
+  "main": "src/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocmca/youtube-playlist-scraper-powershell.git"
+  },
+  "keywords": [
+    "youtube",
+    "download",
+    "audio",
+    "mp3"
+  ],
+  "author": "Owen Alek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ocmca/youtube-playlist-scraper-powershell/issues"
+  },
+  "homepage": "https://github.com/ocmca/youtube-playlist-scraper-powershell#readme"
+}
