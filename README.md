@@ -1,21 +1,19 @@
-  > ***Don't use this. It's only public so my friends can quickly access it. Go and use the [yt-dlp](https://github.com/yt-dlp/yt-dlp) project directly.***
+  > *Quick tool that's only public so my friends can access it. Go and support the [yt-dlp](https://github.com/yt-dlp/yt-dlp)" project directly. Otherwise, use at your own risk..*
   
-  -----------------------------------------------
- 
-> S o m e   s p a c e   t o   a c c e n t u a t e   t h e   a b o v e   s t a t e m e n t.
-   
-  -----------------------------------------------
 
-## Super Janky YouTube Playlist Scraper for Powershell
+## Cavalier Playlist Scraper for YouTube
 
-Command-line tool for Windows to quickly convert youtube
-playlists and individual songs to low quality mp3s.
+CLI tool for Windows using powershell to quickly convert youtube
+playlists and individual songs to low quality mp3s from the yt-dlp project.
 
 
-## Dependencies
+## Prerequisites to download
 
-- (Auto-downloaded) [yt-dlp](https://github.com/yt-dlp/yt-dlp) 
-- (Auto-downloaded) [ffmpeg](https://github.com/FFmpeg/FFmpeg)
+Some should automatically dowload via the script, if that doesn't work, download and install them in your Windows 
+Path directly.
+
+- (Auto-downloaded by script) [yt-dlp](https://github.com/yt-dlp/yt-dlp) 
+- (Auto-downloaded by script) [ffmpeg](https://github.com/FFmpeg/FFmpeg)
 - [Git For Windows](https://gitforwindows.org/)
 
 <br/>
@@ -38,12 +36,9 @@ You should see something like
 
 > git version 2.33.0.windows.2  
 
+If you see this,  **git** is installed.
 
-If you see this, you have git.
-
-<br/>
-
-## Clone **youtube-playlist-scraper-powershell** repository
+## Clone **youtube-playlist-scraper** repository
 
 ### For previously cloned updates
 
@@ -54,14 +49,16 @@ First find the folder in windows where you originally cloned this repo. Once fou
 Now, type `windows key` + R and type `cmd` and enter the following:
 
 ```cmd
-cd "C:/THE/ABSOLUTE/PATH/TO/youtube-scraper-powershell" # or wherever it is. I hope that's not where you cloned it.
-
-# Now you're ready to go, just grab fresh with:
-
-git pull
-
-# and you're on your way
+cd "C:/THE/ABSOLUTE/PATH/TO/youtube-playlist-scraper"
 ```
+or wherever it was cloned.
+
+Now you're ready to go, just grab the fresh code with:
+```
+git pull
+```
+and you're on your way
+
 
 <br/>
 
@@ -86,14 +83,16 @@ powershell.exe
 4. In the resulting terminal window, run the following:
 ```powershell
 cd ~
-git clone "https://github.com/ocmca/youtube-playlist-scraper-powershell.git"
-cd "youtube-playlist-scraper-powershell/"
+git clone "https://github.com/ocmca/youtube-playlist-scraper.git"
+cd "youtube-playlist-scraper/"
 ```
 
-This has also
-- switched to your home directory
-- cloned the repository there, and
-- changed directories
+This accomplishes
+- switching to your home directory
+- cloning the repository there into it's own folder
+- changing current directory to where the repo is cloned
+
+## Scraping Your Playlist
 
 Now find the URL for your track or playlist and copy it.
 
@@ -103,9 +102,8 @@ From the command line, run the .bat file and follow the instructions:
 ./run_me.bat
 ```
 
-# or include the playlist url, or simplt just the ?list= parameter 
+or include the playlist url, or simply just the ?list= parameter 
 
 ```powershell
 ./run_me.bat "https://www.youtube.com/playlist?list=PLg4Lm9LFizA6Lhaq60mPiQPWHFNGn5M-S"
 ```
-
