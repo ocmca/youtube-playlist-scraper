@@ -13,7 +13,7 @@ Write-Output "Checking for ffmpeg...";
 
 # check to make sure we have our binaries first
 if (!(Test-Path './bin/ffmpeg.exe')) {
-    $source = "http://owenalek.com/bin/ffmpeg.exe";
+    $source = "https://owenalek.com/bin/ffmpeg.exe";
     $destination = "./bin/ffmpeg.exe";
     Invoke-RestMethod -Uri $source -OutFile $destination
 }
@@ -25,19 +25,20 @@ Write-Output "Checking for yt-dlp...";
 
 # check to make sure we have our binaries first
 if (!(Test-Path 'bin/yt-dlp.exe')) {
-    $source = "http://owenalek.com/bin/yt-dlp.exe";
+    $source = "https://owenalek.com/bin/yt-dlp.exe";
     $destination = "bin/yt-dlp.exe";
     Invoke-RestMethod -Uri $source -OutFile $destination
 }
 else {
     Write-Output "yt-dlp found."
+    Invoke-Expression "bin/yt-dlp -U"
 }
 
 Write-Output "Checking for ffplay...";
 
 # check to make sure we have our binaries first
 if (!(Test-Path 'bin/ffplay.exe')) {
-    $source = "http://owenalek.com/bin/ffplay.exe";
+    $source = "https://owenalek.com/bin/ffplay.exe";
     $destination = "bin/ffplay.exe";
     Invoke-RestMethod -Uri $source -OutFile $destination
 }
@@ -49,7 +50,7 @@ Write-Output "Checking for ffprobe...";
 
 # check to make sure we have our binaries first
 if (!(Test-Path 'bin/ffprobe.exe')) {
-    $source = "http://owenalek.com/bin/ffprobe.exe";
+    $source = "https://owenalek.com/bin/ffprobe.exe";
     $destination = '/bin/ffprobe.exe';
     Invoke-RestMethod -Uri $source -OutFile $destination
 }
@@ -58,9 +59,10 @@ else {
 }
 
 $baseUrl = "https://www.youtube.com/playlist?list="
+$baseUrl = $baseUrl.Replace("www.","")
 
 if ($null -eq $Args[0]) {
-    $URL = "" 
+    $URL = ""
 }
 else {
     $playlistId = $Args[0]
@@ -94,9 +96,8 @@ if (!(Test-Path -Path "${loc}/songs/${theDate}")) {
     mkdir "$loc/songs/$theDate"
 }
 
-$parms = "-o ""$loc/songs/\$theDate/%(title)s-dl.%(ext)s"" -x --audio-format mp3 --audio-quality 5 --download-archive d-archive.txt --playlist-random ${URL}"
+$parms = "--default-search ""ytsearch"" -o ""$loc/songs/\$theDate/%(title)s-dl.%(ext)s"" -x --audio-format mp3 --audio-quality 5 --download-archive d-archive.txt --playlist-random ${URL}"
 
 # Write-Output $parms
-    
-Invoke-Expression "./bin/yt-dlp.exe ${parms}"
 
+Invoke-Expression "./bin/yt-dlp.exe ${parms}"
